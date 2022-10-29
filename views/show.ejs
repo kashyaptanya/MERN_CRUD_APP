@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>show</title>
+    <style>
+        .nav1 a{
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        
+     } 
+    .nav1 ul{
+        display: inline-flex;
+     }
+ .nav1 li{
+    list-style: none;
+ }
+ .nav1{
+    background-color: blue;
+    
+ }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar nav1"> 
+        <ul>
+            <li><a class="" href="http://localhost:5000/">home</a></li>
+            <li class="px-4"><a href="#">show</a></li>
+        </ul>
+    </div>
+        <table class="table table-hover">
+            
+                <thead>
+                  <tr class="text-white bg-dark">
+                    <th scope="col">ID</th>
+                    <th scope="col">NAME</th>
+                    <th scope="col">EMAIL-ID</th>
+                    <th scope="col">TRASH</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach((user)=>{%>
+                     <tr>
+                        <td><%- user._id %></td>
+                        <td><%- user.name %></td>
+                        <td><%- user.email %></td>
+                        <td>
+                          <a href="/edit/<%= user._id %>" > <i class="fa-solid fa-pen-to-square mx-2" id="edit"></i></a>
+                          <a href="/delete/<%= user._id %>" >  <i class="fa-solid fa-trash"></i></a>
+                        </td>
+                    </tr>
+                  <%  })  %>
+                    
+                </tbody>
+                <!-- <tbody>
+                  <tr>
+                    <th scope="row">#BHHU788899</th>
+                    <td>TANYA</td>
+                    <td>Tanu@gmail.com</td>
+                    <td>
+                        <i class="fa-solid fa-pen-to-square mx-2" id="edit"></i>
+                        <i class="fa-solid fa-trash"></i>
+                    </td>
+                  </tr>
+                </tbody> -->
+        </table>
+    </div>
+    
+</body>
+</html>
